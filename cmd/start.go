@@ -25,7 +25,7 @@ var startCmd = &cobra.Command{
 			fmt.Printf("Failed to resolve home directory in %s: %v\n", projectPath, err)
 			return
 		}
-		err = docker.ExecuteDockerComposeCommand(projectDir, "up", "-d")
+		err = docker.ExecuteDockerComposeCommand(projectDir, "up", "-d --remove-orphans")
 		if err != nil {
 			fmt.Printf("Failed to start project %s: %v\n", projectName, err)
 			return
